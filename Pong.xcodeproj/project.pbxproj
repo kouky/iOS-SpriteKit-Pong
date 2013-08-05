@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC456E9217AA997900F6EE5B /* ScoreNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DC456E9117AA997900F6EE5B /* ScoreNode.m */; };
+		DC69D1E217A9291F008534EC /* PlayerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DC69D1E117A9291F008534EC /* PlayerNode.m */; };
+		DC7419C7178A8E2900D54AB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7419C6178A8E2900D54AB2 /* Foundation.framework */; };
+		DC7419C9178A8E2900D54AB2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7419C8178A8E2900D54AB2 /* CoreGraphics.framework */; };
+		DC7419CB178A8E2900D54AB2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7419CA178A8E2900D54AB2 /* UIKit.framework */; };
+		DC7419D1178A8E2900D54AB2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7419CF178A8E2900D54AB2 /* InfoPlist.strings */; };
+		DC7419D3178A8E2900D54AB2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7419D2178A8E2900D54AB2 /* main.m */; };
+		DC7419D7178A8E2900D54AB2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7419D6178A8E2900D54AB2 /* AppDelegate.m */; };
+		DC7419D9178A8E2900D54AB2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC7419D8178A8E2900D54AB2 /* Images.xcassets */; };
+		DC7419E0178A8E2900D54AB2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7419DF178A8E2900D54AB2 /* XCTest.framework */; };
+		DC7419E1178A8E2900D54AB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7419C6178A8E2900D54AB2 /* Foundation.framework */; };
+		DC7419E2178A8E2900D54AB2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7419CA178A8E2900D54AB2 /* UIKit.framework */; };
+		DC7419EA178A8E2900D54AB2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC7419E8178A8E2900D54AB2 /* InfoPlist.strings */; };
+		DC7419EC178A8E2900D54AB2 /* PongTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7419EB178A8E2900D54AB2 /* PongTests.m */; };
+		DC7419FB178AC58B00D54AB2 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7419FA178AC58B00D54AB2 /* SpriteKit.framework */; };
+		DC7419FC178AC5A700D54AB2 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7419F9178AC25100D54AB2 /* GameViewController.m */; };
+		DC7419FF178AD5EA00D54AB2 /* PlayfieldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7419FE178AD29400D54AB2 /* PlayfieldScene.m */; };
+		DC7C604617939F52001252AB /* BallNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DC7C604517939D1E001252AB /* BallNode.m */; };
+		DC91E2C717A5F16C00280008 /* ContactVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DC91E2C617A5F16C00280008 /* ContactVisitor.m */; };
+		DC91E2D017A6447200280008 /* BallNodeContactVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DC91E2CF17A6447200280008 /* BallNodeContactVisitor.m */; };
+		DC91E2D317A6448E00280008 /* PaddleNodeContactVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DC91E2D217A6448E00280008 /* PaddleNodeContactVisitor.m */; };
+		DC91E2D617A644AF00280008 /* PlayfieldSceneContactVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DC91E2D517A644AF00280008 /* PlayfieldSceneContactVisitor.m */; };
+		DC91E2D917A648B300280008 /* SKPhysicsBody+MKLVisitable.m in Sources */ = {isa = PBXBuildFile; fileRef = DC91E2D817A648B300280008 /* SKPhysicsBody+MKLVisitable.m */; };
+		DCD60B821796A7F70075C179 /* PaddleNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD60B811796A7F70075C179 /* PaddleNode.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC7419E3178A8E2900D54AB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC7419BB178A8E2900D54AB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC7419C2178A8E2900D54AB2;
+			remoteInfo = Pong;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DC456E9017AA997900F6EE5B /* ScoreNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreNode.h; sourceTree = "<group>"; };
+		DC456E9117AA997900F6EE5B /* ScoreNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreNode.m; sourceTree = "<group>"; };
+		DC69D1E017A9291F008534EC /* PlayerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerNode.h; sourceTree = "<group>"; };
+		DC69D1E117A9291F008534EC /* PlayerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerNode.m; sourceTree = "<group>"; };
+		DC7419C3178A8E2900D54AB2 /* Pong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pong.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7419C6178A8E2900D54AB2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DC7419C8178A8E2900D54AB2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DC7419CA178A8E2900D54AB2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DC7419CE178A8E2900D54AB2 /* Pong-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pong-Info.plist"; sourceTree = "<group>"; };
+		DC7419D0178A8E2900D54AB2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DC7419D2178A8E2900D54AB2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DC7419D4178A8E2900D54AB2 /* Pong-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pong-Prefix.pch"; sourceTree = "<group>"; };
+		DC7419D5178A8E2900D54AB2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DC7419D6178A8E2900D54AB2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DC7419D8178A8E2900D54AB2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DC7419DE178A8E2900D54AB2 /* PongTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PongTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7419DF178A8E2900D54AB2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		DC7419E7178A8E2900D54AB2 /* PongTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PongTests-Info.plist"; sourceTree = "<group>"; };
+		DC7419E9178A8E2900D54AB2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DC7419EB178A8E2900D54AB2 /* PongTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PongTests.m; sourceTree = "<group>"; };
+		DC7419F8178AC25100D54AB2 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		DC7419F9178AC25100D54AB2 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		DC7419FA178AC58B00D54AB2 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		DC7419FD178AD29400D54AB2 /* PlayfieldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayfieldScene.h; sourceTree = "<group>"; };
+		DC7419FE178AD29400D54AB2 /* PlayfieldScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayfieldScene.m; sourceTree = "<group>"; };
+		DC7C604417939D1E001252AB /* BallNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BallNode.h; sourceTree = "<group>"; };
+		DC7C604517939D1E001252AB /* BallNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BallNode.m; sourceTree = "<group>"; };
+		DC91E2C517A5F16C00280008 /* ContactVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactVisitor.h; sourceTree = "<group>"; };
+		DC91E2C617A5F16C00280008 /* ContactVisitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactVisitor.m; sourceTree = "<group>"; };
+		DC91E2CE17A6447100280008 /* BallNodeContactVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BallNodeContactVisitor.h; sourceTree = "<group>"; };
+		DC91E2CF17A6447200280008 /* BallNodeContactVisitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BallNodeContactVisitor.m; sourceTree = "<group>"; };
+		DC91E2D117A6448E00280008 /* PaddleNodeContactVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaddleNodeContactVisitor.h; sourceTree = "<group>"; };
+		DC91E2D217A6448E00280008 /* PaddleNodeContactVisitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaddleNodeContactVisitor.m; sourceTree = "<group>"; };
+		DC91E2D417A644AF00280008 /* PlayfieldSceneContactVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayfieldSceneContactVisitor.h; sourceTree = "<group>"; };
+		DC91E2D517A644AF00280008 /* PlayfieldSceneContactVisitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayfieldSceneContactVisitor.m; sourceTree = "<group>"; };
+		DC91E2D717A648B300280008 /* SKPhysicsBody+MKLVisitable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKPhysicsBody+MKLVisitable.h"; sourceTree = "<group>"; };
+		DC91E2D817A648B300280008 /* SKPhysicsBody+MKLVisitable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKPhysicsBody+MKLVisitable.m"; sourceTree = "<group>"; };
+		DCB05FFE17A15FC300BCE6E3 /* NodeCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeCategories.h; sourceTree = "<group>"; };
+		DCD60B801796A7F70075C179 /* PaddleNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaddleNode.h; sourceTree = "<group>"; };
+		DCD60B811796A7F70075C179 /* PaddleNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaddleNode.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC7419C0178A8E2900D54AB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7419FB178AC58B00D54AB2 /* SpriteKit.framework in Frameworks */,
+				DC7419C9178A8E2900D54AB2 /* CoreGraphics.framework in Frameworks */,
+				DC7419CB178A8E2900D54AB2 /* UIKit.framework in Frameworks */,
+				DC7419C7178A8E2900D54AB2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC7419DB178A8E2900D54AB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7419E0178A8E2900D54AB2 /* XCTest.framework in Frameworks */,
+				DC7419E2178A8E2900D54AB2 /* UIKit.framework in Frameworks */,
+				DC7419E1178A8E2900D54AB2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC7419BA178A8E2900D54AB2 = {
+			isa = PBXGroup;
+			children = (
+				DC7419CC178A8E2900D54AB2 /* Pong */,
+				DC7419E5178A8E2900D54AB2 /* PongTests */,
+				DC7419C5178A8E2900D54AB2 /* Frameworks */,
+				DC7419C4178A8E2900D54AB2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC7419C4178A8E2900D54AB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC7419C3178A8E2900D54AB2 /* Pong.app */,
+				DC7419DE178A8E2900D54AB2 /* PongTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC7419C5178A8E2900D54AB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC7419FA178AC58B00D54AB2 /* SpriteKit.framework */,
+				DC7419C6178A8E2900D54AB2 /* Foundation.framework */,
+				DC7419C8178A8E2900D54AB2 /* CoreGraphics.framework */,
+				DC7419CA178A8E2900D54AB2 /* UIKit.framework */,
+				DC7419DF178A8E2900D54AB2 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC7419CC178A8E2900D54AB2 /* Pong */ = {
+			isa = PBXGroup;
+			children = (
+				DC7419D5178A8E2900D54AB2 /* AppDelegate.h */,
+				DC7419D6178A8E2900D54AB2 /* AppDelegate.m */,
+				DCB05FFE17A15FC300BCE6E3 /* NodeCategories.h */,
+				DC7419F8178AC25100D54AB2 /* GameViewController.h */,
+				DC7419F9178AC25100D54AB2 /* GameViewController.m */,
+				DC7419FD178AD29400D54AB2 /* PlayfieldScene.h */,
+				DC7419FE178AD29400D54AB2 /* PlayfieldScene.m */,
+				DC7C604417939D1E001252AB /* BallNode.h */,
+				DC7C604517939D1E001252AB /* BallNode.m */,
+				DC69D1E017A9291F008534EC /* PlayerNode.h */,
+				DC69D1E117A9291F008534EC /* PlayerNode.m */,
+				DCD60B801796A7F70075C179 /* PaddleNode.h */,
+				DCD60B811796A7F70075C179 /* PaddleNode.m */,
+				DC456E9017AA997900F6EE5B /* ScoreNode.h */,
+				DC456E9117AA997900F6EE5B /* ScoreNode.m */,
+				DC91E2D717A648B300280008 /* SKPhysicsBody+MKLVisitable.h */,
+				DC91E2D817A648B300280008 /* SKPhysicsBody+MKLVisitable.m */,
+				DC91E2DA17A652D000280008 /* Visitors */,
+				DC7419D8178A8E2900D54AB2 /* Images.xcassets */,
+				DC7419CD178A8E2900D54AB2 /* Supporting Files */,
+			);
+			path = Pong;
+			sourceTree = "<group>";
+		};
+		DC7419CD178A8E2900D54AB2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC7419CE178A8E2900D54AB2 /* Pong-Info.plist */,
+				DC7419CF178A8E2900D54AB2 /* InfoPlist.strings */,
+				DC7419D2178A8E2900D54AB2 /* main.m */,
+				DC7419D4178A8E2900D54AB2 /* Pong-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC7419E5178A8E2900D54AB2 /* PongTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC7419EB178A8E2900D54AB2 /* PongTests.m */,
+				DC7419E6178A8E2900D54AB2 /* Supporting Files */,
+			);
+			path = PongTests;
+			sourceTree = "<group>";
+		};
+		DC7419E6178A8E2900D54AB2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC7419E7178A8E2900D54AB2 /* PongTests-Info.plist */,
+				DC7419E8178A8E2900D54AB2 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC91E2DA17A652D000280008 /* Visitors */ = {
+			isa = PBXGroup;
+			children = (
+				DC91E2C517A5F16C00280008 /* ContactVisitor.h */,
+				DC91E2C617A5F16C00280008 /* ContactVisitor.m */,
+				DC91E2CE17A6447100280008 /* BallNodeContactVisitor.h */,
+				DC91E2CF17A6447200280008 /* BallNodeContactVisitor.m */,
+				DC91E2D117A6448E00280008 /* PaddleNodeContactVisitor.h */,
+				DC91E2D217A6448E00280008 /* PaddleNodeContactVisitor.m */,
+				DC91E2D417A644AF00280008 /* PlayfieldSceneContactVisitor.h */,
+				DC91E2D517A644AF00280008 /* PlayfieldSceneContactVisitor.m */,
+			);
+			name = Visitors;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC7419C2178A8E2900D54AB2 /* Pong */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC7419EF178A8E2900D54AB2 /* Build configuration list for PBXNativeTarget "Pong" */;
+			buildPhases = (
+				DC7419BF178A8E2900D54AB2 /* Sources */,
+				DC7419C0178A8E2900D54AB2 /* Frameworks */,
+				DC7419C1178A8E2900D54AB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pong;
+			productName = Pong;
+			productReference = DC7419C3178A8E2900D54AB2 /* Pong.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC7419DD178A8E2900D54AB2 /* PongTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC7419F2178A8E2900D54AB2 /* Build configuration list for PBXNativeTarget "PongTests" */;
+			buildPhases = (
+				DC7419DA178A8E2900D54AB2 /* Sources */,
+				DC7419DB178A8E2900D54AB2 /* Frameworks */,
+				DC7419DC178A8E2900D54AB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC7419E4178A8E2900D54AB2 /* PBXTargetDependency */,
+			);
+			name = PongTests;
+			productName = PongTests;
+			productReference = DC7419DE178A8E2900D54AB2 /* PongTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC7419BB178A8E2900D54AB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MKL;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Michael Koukoullis";
+				TargetAttributes = {
+					DC7419DD178A8E2900D54AB2 = {
+						TestTargetID = DC7419C2178A8E2900D54AB2;
+					};
+				};
+			};
+			buildConfigurationList = DC7419BE178A8E2900D54AB2 /* Build configuration list for PBXProject "Pong" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DC7419BA178A8E2900D54AB2;
+			productRefGroup = DC7419C4178A8E2900D54AB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC7419C2178A8E2900D54AB2 /* Pong */,
+				DC7419DD178A8E2900D54AB2 /* PongTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC7419C1178A8E2900D54AB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7419D1178A8E2900D54AB2 /* InfoPlist.strings in Resources */,
+				DC7419D9178A8E2900D54AB2 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC7419DC178A8E2900D54AB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7419EA178A8E2900D54AB2 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC7419BF178A8E2900D54AB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7419D3178A8E2900D54AB2 /* main.m in Sources */,
+				DC91E2D017A6447200280008 /* BallNodeContactVisitor.m in Sources */,
+				DC7419FC178AC5A700D54AB2 /* GameViewController.m in Sources */,
+				DC91E2D317A6448E00280008 /* PaddleNodeContactVisitor.m in Sources */,
+				DC7C604617939F52001252AB /* BallNode.m in Sources */,
+				DCD60B821796A7F70075C179 /* PaddleNode.m in Sources */,
+				DC69D1E217A9291F008534EC /* PlayerNode.m in Sources */,
+				DC91E2C717A5F16C00280008 /* ContactVisitor.m in Sources */,
+				DC456E9217AA997900F6EE5B /* ScoreNode.m in Sources */,
+				DC91E2D917A648B300280008 /* SKPhysicsBody+MKLVisitable.m in Sources */,
+				DC7419D7178A8E2900D54AB2 /* AppDelegate.m in Sources */,
+				DC91E2D617A644AF00280008 /* PlayfieldSceneContactVisitor.m in Sources */,
+				DC7419FF178AD5EA00D54AB2 /* PlayfieldScene.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC7419DA178A8E2900D54AB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC7419EC178A8E2900D54AB2 /* PongTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC7419E4178A8E2900D54AB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC7419C2178A8E2900D54AB2 /* Pong */;
+			targetProxy = DC7419E3178A8E2900D54AB2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DC7419CF178A8E2900D54AB2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC7419D0178A8E2900D54AB2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DC7419E8178A8E2900D54AB2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC7419E9178A8E2900D54AB2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC7419ED178A8E2900D54AB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC7419EE178A8E2900D54AB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC7419F0178A8E2900D54AB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pong/Pong-Prefix.pch";
+				INFOPLIST_FILE = "Pong/Pong-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DC7419F1178A8E2900D54AB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pong/Pong-Prefix.pch";
+				INFOPLIST_FILE = "Pong/Pong-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		DC7419F3178A8E2900D54AB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Pong.app/Pong";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP2.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pong/Pong-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PongTests/PongTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		DC7419F4178A8E2900D54AB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Pong.app/Pong";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode5-DP2.app/Contents/Developer/Library/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Pong/Pong-Prefix.pch";
+				INFOPLIST_FILE = "PongTests/PongTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC7419BE178A8E2900D54AB2 /* Build configuration list for PBXProject "Pong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC7419ED178A8E2900D54AB2 /* Debug */,
+				DC7419EE178A8E2900D54AB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC7419EF178A8E2900D54AB2 /* Build configuration list for PBXNativeTarget "Pong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC7419F0178A8E2900D54AB2 /* Debug */,
+				DC7419F1178A8E2900D54AB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC7419F2178A8E2900D54AB2 /* Build configuration list for PBXNativeTarget "PongTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC7419F3178A8E2900D54AB2 /* Debug */,
+				DC7419F4178A8E2900D54AB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC7419BB178A8E2900D54AB2 /* Project object */;
+}
