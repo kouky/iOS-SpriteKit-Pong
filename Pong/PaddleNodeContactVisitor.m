@@ -31,12 +31,21 @@
         interpolatedReflectionAngle = -0.5;
     }
     
-    // Determine the velocity component vectors based on a constant
-    // velocity magnitude of 400 units
-    float horizontalVelocity = 400 * cos(interpolatedReflectionAngle);
-    float verticalVelocity = 400 * sin(interpolatedReflectionAngle);
+    // Determine the velocity magnitude for the ball based on the
+    // speed of the paddle on contact.
+    float paddleSpeedNormalised = fabs(paddle.speed / 2000);  // 2000 is an arbitrary normalitsaion factor
+    if (paddleSpeedNormalised > 1.0)
+        paddleSpeedNormalised = 1.0;
+    else if (paddleSpeedNormalised < 0)
+        paddleSpeedNormalised = 0;
+
+    float velocityMagnitude = 300 + 500 * paddleSpeedNormalised;
     
-    // Make sure the horizintal velocity is reflected
+    // Determine the ball velocity component vectors
+    float horizontalVelocity = velocityMagnitude * cos(interpolatedReflectionAngle);
+    float verticalVelocity = velocityMagnitude * sin(interpolatedReflectionAngle);
+    
+    // Make sure the horizintal velocity for the ball is reflected
     if ([paddle.name isEqualToString:@"leftPaddle"]) {
         horizontalVelocity = fabsf(horizontalVelocity);
     } else if ([paddle.name isEqualToString:@"rightPaddle"]) {
