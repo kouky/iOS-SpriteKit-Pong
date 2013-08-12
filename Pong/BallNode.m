@@ -46,7 +46,7 @@ static const CGFloat contactTolerance = 1.0;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    self.physicsBody.velocity = CGPointMake(400, -100);
+    self.physicsBody.velocity = CGVectorMake(400, -100);
 }
 
 - (void)resetPosition
@@ -58,7 +58,7 @@ static const CGFloat contactTolerance = 1.0;
 - (void)resetForScore
 {
     [self resetPosition];
-    self.physicsBody.velocity = CGPointMake(400, -100);
+    self.physicsBody.velocity = CGVectorMake(400, -100);
 }
 
 - (void)reflectVelocityForContactWithPoint:(CGPoint)point
@@ -72,16 +72,16 @@ static const CGFloat contactTolerance = 1.0;
 
 - (void)reflectHorizontalVelocity
 {
-    CGFloat x = -1 * self.physicsBody.velocity.x;
-    CGFloat y = self.physicsBody.velocity.y;
-    self.physicsBody.velocity = CGPointMake(x,y);
+    CGFloat x = -1 * self.physicsBody.velocity.dx;
+    CGFloat y = self.physicsBody.velocity.dy;
+    self.physicsBody.velocity = CGVectorMake(x,y);
 }
 
 - (void)reflectVerticalVelocity
 {
-    CGFloat x = self.physicsBody.velocity.x;
-    CGFloat y = -1 * self.physicsBody.velocity.y;
-    self.physicsBody.velocity = CGPointMake(x,y);
+    CGFloat x = self.physicsBody.velocity.dx;
+    CGFloat y = -1 * self.physicsBody.velocity.dy;
+    self.physicsBody.velocity = CGVectorMake(x,y);
 }
 
 @end

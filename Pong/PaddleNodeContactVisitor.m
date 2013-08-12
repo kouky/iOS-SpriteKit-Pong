@@ -44,7 +44,7 @@
     }
     
     // Set the ball velocity
-    ballBody.velocity = CGPointMake(horizontalVelocity, verticalVelocity);
+    ballBody.velocity = CGVectorMake(horizontalVelocity, verticalVelocity);
 }
 
 @end
