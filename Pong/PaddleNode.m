@@ -9,6 +9,13 @@
 #import "PaddleNode.h"
 #import "NodeCategories.h"
 
+static const float movingAveragelambda = 0.8;
+
+@interface PaddleNode ()
+@property (nonatomic, assign) NSTimeInterval previousTouchesTimestamp;
+@property (nonatomic, assign, readwrite) float speed;
+@end
+
 @implementation PaddleNode
 
 - (id)init
@@ -34,12 +41,36 @@
     return self;
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.previousTouchesTimestamp = event.timestamp;
+    self.speed = 0;
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    self.speed = 0;
+}
+
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    CGPoint touchPoint = [[touches anyObject] locationInNode:self.scene];
+    UITouch *touch = [touches anyObject];
+    
+    // Move the paddle vertically if the new position is within
+    // the parent frame. SKNode positions are centered.
+    CGPoint touchPoint = [touch locationInNode:self.scene];
     CGPoint movePoint = CGPointMake(self.position.x, touchPoint.y);
     if ([self withinParentFrame:movePoint])
         self.position = movePoint;
+    
+    // Approximate the speed of the paddle using an exponential moving average
+    CGPoint previousTouchPoint = [touch previousLocationInNode:self.scene];
+    float distanceFromPrevious = fabs(touchPoint.y - previousTouchPoint.y);
+    NSTimeInterval timeSincePrevious = event.timestamp - self.previousTouchesTimestamp;
+    float newSpeed = (1.0 - movingAveragelambda) * self.speed + movingAveragelambda * (distanceFromPrevious/timeSincePrevious);
+
+    self.speed = newSpeed;
+    self.previousTouchesTimestamp = event.timestamp;
 }
 
 - (BOOL)withinParentFrame:(CGPoint)point

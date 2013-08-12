@@ -10,6 +10,8 @@
 
 @interface PaddleNode : SKSpriteNode
 
+@property (nonatomic, readonly) float speed;
+
 - (id)initWithName:(NSString *)name;
 - (CGPoint)normalisePoint:(CGPoint)point;
 
