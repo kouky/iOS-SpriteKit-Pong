@@ -14,5 +14,6 @@
 - (void)reflectVerticalVelocity;
 - (void)resetPosition;
 - (void)resetForScore;
+- (void)setVelocityWithRadians:(float)radians Magnitude:(float)magnitude;
 
 @end

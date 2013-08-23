@@ -68,4 +68,11 @@ static const CGFloat contactTolerance = 1.0;
     self.physicsBody.velocity = CGVectorMake(x,y);
 }
 
+- (void)setVelocityWithRadians:(float)radians Magnitude:(float)magnitude
+{
+    float horizontalVelocity = magnitude * sin(radians);
+    float verticalVelocity = magnitude * cos(radians);
+    self.physicsBody.velocity = CGVectorMake(horizontalVelocity, verticalVelocity);
+}
+
 @end
