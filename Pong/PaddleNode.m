@@ -84,7 +84,19 @@ static const float movingAveragelambda = 0.8;
 
 - (CGPoint)normalisePoint:(CGPoint)point
 {
-    return CGPointMake((point.x / (self.size.width / 2)), (point.y / (self.size.height / 2)));
+    CGFloat x = point.x / (self.size.width / 2);
+    if (x > 1.0)
+        x = 1.0;
+    else if (x < -1.0)
+        x = -1.0;
+    
+    CGFloat y = point.y / (self.size.height / 2);
+    if (y > 1.0)
+        y = 1.0;
+    else if (y < -1.0)
+        y = -1.0;
+    
+    return CGPointMake(x,y);
 }
 
 @end
