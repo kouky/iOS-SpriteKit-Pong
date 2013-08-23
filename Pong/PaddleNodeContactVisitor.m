@@ -22,18 +22,17 @@
     CGPoint point = [paddle convertPoint:self.contact.contactPoint fromNode:ball.scene];
     CGPoint normalisedPoint = [paddle normalisePoint:point];
     
-    // Interpolate the ball reflection angle based on the vertical contact point witht paddle
+    // Interpolate the ball reflection angle based on the vertical contact point with paddle
     // Cap the reflection at 45 degrees
     float interpolatedReflectionAngle = M_PI_4 * normalisedPoint.y;
-    if (interpolatedReflectionAngle > 0.5) {
+    if (interpolatedReflectionAngle > 0.5)
         interpolatedReflectionAngle = 0.5;
-    } else if (interpolatedReflectionAngle < -0.5) {
+    else if (interpolatedReflectionAngle < -0.5)
         interpolatedReflectionAngle = -0.5;
-    }
     
     // Determine the velocity magnitude for the ball based on the
     // speed of the paddle on contact.
-    float paddleSpeedNormalised = fabs(paddle.speed / 2000);  // 2000 is an arbitrary normalitsaion factor
+    float paddleSpeedNormalised = fabs(paddle.speed / 2000);  // 2000 is an arbitrary normalisation factor
     if (paddleSpeedNormalised > 1.0)
         paddleSpeedNormalised = 1.0;
     else if (paddleSpeedNormalised < 0)
@@ -46,11 +45,10 @@
     float verticalVelocity = velocityMagnitude * sin(interpolatedReflectionAngle);
     
     // Make sure the horizintal velocity for the ball is reflected
-    if ([paddle.name isEqualToString:@"leftPaddle"]) {
+    if ([paddle.name isEqualToString:@"leftPaddle"])
         horizontalVelocity = fabsf(horizontalVelocity);
-    } else if ([paddle.name isEqualToString:@"rightPaddle"]) {
+    else if ([paddle.name isEqualToString:@"rightPaddle"])
         horizontalVelocity = -1 * fabsf(horizontalVelocity);
-    }
     
     // Set the ball velocity
     ballBody.velocity = CGVectorMake(horizontalVelocity, verticalVelocity);
