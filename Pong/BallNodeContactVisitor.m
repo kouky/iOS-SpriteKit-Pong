@@ -29,8 +29,7 @@
         [score increment];
         [ball resetForScore];
     } else {
-        // Otherwise reflect the velocity
-        [ball reflectVelocityForContactWithPoint:self.contact.contactPoint];
+        [ball reflectVerticalVelocity];
     }
 }
 

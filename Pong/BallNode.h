@@ -11,7 +11,7 @@
 @interface BallNode : SKShapeNode
 
 - (id)initWithRadius:(float)radius;
-- (void)reflectVelocityForContactWithPoint:(CGPoint)point;
+- (void)reflectVerticalVelocity;
 - (void)resetPosition;
 - (void)resetForScore;
 

@@ -61,22 +61,6 @@ static const CGFloat contactTolerance = 1.0;
     self.physicsBody.velocity = CGVectorMake(400, -100);
 }
 
-- (void)reflectVelocityForContactWithPoint:(CGPoint)point
-{
-    if (floorf(point.x) <= contactTolerance || ceilf(point.x) >= self.scene.frame.size.width - contactTolerance) {
-        [self reflectHorizontalVelocity];
-    } else if (floorf(point.y) <= contactTolerance || ceilf(point.y) >= self.scene.frame.size.height - contactTolerance) {
-        [self reflectVerticalVelocity];
-    }
-}
-
-- (void)reflectHorizontalVelocity
-{
-    CGFloat x = -1 * self.physicsBody.velocity.dx;
-    CGFloat y = self.physicsBody.velocity.dy;
-    self.physicsBody.velocity = CGVectorMake(x,y);
-}
-
 - (void)reflectVerticalVelocity
 {
     CGFloat x = self.physicsBody.velocity.dx;
