@@ -13,7 +13,8 @@
 - (id)initWithRadius:(float)radius;
 - (void)reflectVerticalVelocity;
 - (void)resetPosition;
-- (void)resetForScore;
+- (void)serveLeftwards;
+- (void)serveRightwards;
 - (void)setVelocityWithRadians:(float)radians Magnitude:(float)magnitude;
 
 @end

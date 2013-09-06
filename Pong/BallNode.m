@@ -8,6 +8,7 @@
 
 #import "BallNode.h"
 #import "NodeCategories.h"
+#import "RandomHelper.h"
 
 static const CGFloat contactTolerance = 1.0;
 
@@ -46,7 +47,7 @@ static const CGFloat contactTolerance = 1.0;
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    self.physicsBody.velocity = CGVectorMake(400, -100);
+    [self serveRightwards];
 }
 
 - (void)resetPosition
@@ -55,10 +56,22 @@ static const CGFloat contactTolerance = 1.0;
     self.hidden = NO;
 }
 
-- (void)resetForScore
+- (void)serveLeftwards
 {
     [self resetPosition];
     self.physicsBody.velocity = CGVectorMake(400, -100);
+    CGFloat direction = skRand(M_PI + M_PI_4, M_PI + M_PI_2 + M_PI_4);
+    CGFloat magnitude = skRand(300, 400);
+    [self setVelocityWithRadians:direction Magnitude:magnitude];
+}
+
+- (void)serveRightwards
+{
+    [self resetPosition];
+    self.physicsBody.velocity = CGVectorMake(400, -100);
+    CGFloat direction = skRand(M_PI_4, M_PI_2 + M_PI_4);
+    CGFloat magnitude = skRand(300, 400);
+    [self setVelocityWithRadians:direction Magnitude:magnitude];
 }
 
 - (void)reflectVerticalVelocity

@@ -22,12 +22,12 @@
     if ([playfield isPointOnLeftEdge:self.contact.contactPoint]) {
         ScoreNode *score = (ScoreNode *) [playfield childNodeWithName:@"//rightScore"];
         [score increment];
-        [ball resetForScore];
+        [ball serveLeftwards];
     }
     else if ([playfield isPointOnRightEdge:self.contact.contactPoint]) {
         ScoreNode *score = (ScoreNode *) [playfield childNodeWithName:@"//leftScore"];
         [score increment];
-        [ball resetForScore];
+        [ball serveRightwards];
     } else {
         [ball reflectVerticalVelocity];
     }
