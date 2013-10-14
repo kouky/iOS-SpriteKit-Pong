@@ -23,7 +23,7 @@
     CGPoint normalisedPoint = [paddle normalisePoint:point];
     
     // Interpolate the ball reflection angle based on the vertical contact point with the paddle
-    // Cap the reflection a90 degress arc from the center of the paddles
+    // Cap the reflection at 90 degress arc from the center of the paddles
     float interpolatedReflectionAngle = 0;
     if ([paddle.name isEqualToString:@"leftPaddle"]) {
         interpolatedReflectionAngle = M_PI_2 - (normalisedPoint.y * M_PI_4);

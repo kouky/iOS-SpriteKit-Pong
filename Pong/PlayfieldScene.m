@@ -12,10 +12,14 @@
 #import "NodeCategories.h"
 #import "SKPhysicsBody+MKLVisitable.h"
 
-static const CGFloat contactTolerance = 1.0;
+static const CGFloat  contactTolerance    = 1.0;
+static const uint32_t serveBallComplete   = 0x0;
+static const uint32_t serveBallLeftwards  = 0x1 << 0;
+static const uint32_t serveBallRightwards = 0x1 << 1;
 
 @interface PlayfieldScene ()
 @property BOOL contentCreated;
+@property uint32_t serveBallStatus;
 @end
 
 @implementation PlayfieldScene
@@ -33,7 +37,7 @@ static const CGFloat contactTolerance = 1.0;
     self.backgroundColor = [SKColor grayColor];
     self.scaleMode = SKSceneScaleModeResizeFill;
 
-    BallNode *ball = [[BallNode alloc] initWithRadius:10];
+    BallNode *ball = [[BallNode alloc] init];
     [self addChild:ball];
     
     PlayerNode *leftPlayer = [[PlayerNode alloc] initOnLeftSide];
@@ -97,21 +101,59 @@ static const CGFloat contactTolerance = 1.0;
 
 - (BOOL)isPointOnLeftEdge:(CGPoint)point
 {
-    if (floorf(point.x) <= contactTolerance) {
+    if (floorf(point.x) <= contactTolerance)
         return YES;
-    } else {
+    else
         return NO;
-    }
 }
 
 - (BOOL)isPointOnRightEdge:(CGPoint)point
 {
-    if (ceilf(point.x) >= self.frame.size.width - contactTolerance) {
+    if (ceilf(point.x) >= self.frame.size.width - contactTolerance)
         return YES;
-    } else {
+    else
         return NO;
+}
+
+- (void)serveBallLeftwards
+{
+    BallNode *ball = (BallNode *) [self childNodeWithName:@"ball"];
+    if (ball) {
+        [ball removeFromParent];
+        self.serveBallStatus = serveBallLeftwards;;
     }
 }
 
+- (void)serveBallRightwards
+{
+    BallNode *ball = (BallNode *) [self childNodeWithName:@"ball"];
+    if (ball) {
+        [ball removeFromParent];
+        self.serveBallStatus = serveBallRightwards;;
+    }
+    
+}
+
+- (void)update:(NSTimeInterval)currentTime
+{
+    // Seems that we can't just update the position of the ball
+    // during contact detection, needs to be done duting the update
+    // stage of scene processing
+    if ((self.serveBallStatus & serveBallLeftwards) != 0) {
+        self.serveBallStatus = serveBallComplete;
+        BallNode *ball = [[BallNode alloc] init];
+        [self addChild:ball];
+        [ball resetPosition];
+        [ball serveLeftwards];
+    }
+
+    if ((self.serveBallStatus & serveBallRightwards) != 0) {
+        self.serveBallStatus = serveBallComplete;
+        BallNode *ball = [[BallNode alloc] init];
+        [self addChild:ball];
+        [ball resetPosition];
+        [ball serveLeftwards];
+    }
+}
 
 @end

@@ -18,16 +18,18 @@
     BallNode *ball = (BallNode *) self.body.node;
     PlayfieldScene *playfield = (PlayfieldScene *) playfieldBody.node;
     
-    // Check to see if the ball has touched the edges behind the paddle so a score can be lodged
+    // Check to see if the ball has touched the edges behind the left player so a score can be lodged
     if ([playfield isPointOnLeftEdge:self.contact.contactPoint]) {
         ScoreNode *score = (ScoreNode *) [playfield childNodeWithName:@"//rightScore"];
         [score increment];
-        [ball serveLeftwards];
+        [playfield serveBallLeftwards];
     }
+    // Check to see if the ball has touched the edges behind the left player so a score can be lodged
     else if ([playfield isPointOnRightEdge:self.contact.contactPoint]) {
         ScoreNode *score = (ScoreNode *) [playfield childNodeWithName:@"//leftScore"];
         [score increment];
-        [ball serveRightwards];
+        [playfield serveBallRightwards];
+    // Otherwise assume the ball just needs to bounce off the top or bottom playfield edge
     } else {
         [ball reflectVerticalVelocity];
     }

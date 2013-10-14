@@ -59,7 +59,6 @@ static const CGFloat contactTolerance = 1.0;
 - (void)serveLeftwards
 {
     [self resetPosition];
-    self.physicsBody.velocity = CGVectorMake(400, -100);
     CGFloat direction = skRand(M_PI + M_PI_4, M_PI + M_PI_2 + M_PI_4);
     CGFloat magnitude = skRand(300, 400);
     [self setVelocityWithRadians:direction Magnitude:magnitude];
@@ -68,7 +67,6 @@ static const CGFloat contactTolerance = 1.0;
 - (void)serveRightwards
 {
     [self resetPosition];
-    self.physicsBody.velocity = CGVectorMake(400, -100);
     CGFloat direction = skRand(M_PI_4, M_PI_2 + M_PI_4);
     CGFloat magnitude = skRand(300, 400);
     [self setVelocityWithRadians:direction Magnitude:magnitude];
@@ -83,8 +81,8 @@ static const CGFloat contactTolerance = 1.0;
 
 - (void)setVelocityWithRadians:(float)radians Magnitude:(float)magnitude
 {
-    float horizontalVelocity = magnitude * sin(radians);
-    float verticalVelocity = magnitude * cos(radians);
+    CGFloat horizontalVelocity = magnitude * sin(radians);
+    CGFloat verticalVelocity = magnitude * cos(radians);
     self.physicsBody.velocity = CGVectorMake(horizontalVelocity, verticalVelocity);
 }
 

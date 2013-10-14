@@ -12,5 +12,7 @@
 
 - (BOOL)isPointOnLeftEdge:(CGPoint)point;
 - (BOOL)isPointOnRightEdge:(CGPoint)point;
+- (void)serveBallLeftwards;
+- (void)serveBallRightwards;
 
 @end
