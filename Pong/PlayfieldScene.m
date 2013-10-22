@@ -10,7 +10,7 @@
 #import "BallNode.h"
 #import "PlayerNode.h"
 #import "NodeCategories.h"
-#import "SKPhysicsBody+MKLVisitable.h"
+#import "VisitablePhysicsBody.h"
 
 static const CGFloat  contactTolerance    = 1.0;
 static const uint32_t serveBallComplete   = 0x0;
@@ -71,9 +71,13 @@ static const uint32_t serveBallRightwards = 0x1 << 1;
 //        [ball reflectHorizontalVelocity];
 //    }
     
-    // Alternatively use the visitor pattern for a double dispatch approach    
-    [firstBody mkl_acceptVisitor:[ContactVisitor contactVisitorWithBody:secondBody forContact:contact]];
-    [secondBody mkl_acceptVisitor:[ContactVisitor contactVisitorWithBody:firstBody forContact:contact]];
+    // Alternatively use the visitor pattern for a double dispatch approach        
+    VisitablePhysicsBody *firstVisitableBody = [[VisitablePhysicsBody alloc] initWithBody:firstBody];
+    VisitablePhysicsBody *secondVisitableBody = [[VisitablePhysicsBody alloc] initWithBody:secondBody];
+    
+    [firstVisitableBody acceptVisitor:[ContactVisitor contactVisitorWithBody:secondBody forContact:contact]];
+    [secondVisitableBody acceptVisitor:[ContactVisitor contactVisitorWithBody:firstBody forContact:contact]];
+    
 }
 
 // Using didChangeSize as a proxy to initialise the scene edges and nodes within

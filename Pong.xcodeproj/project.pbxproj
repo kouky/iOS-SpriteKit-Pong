@@ -29,8 +29,8 @@
 		DC91E2D017A6447200280008 /* BallNodeContactVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DC91E2CF17A6447200280008 /* BallNodeContactVisitor.m */; };
 		DC91E2D317A6448E00280008 /* PaddleNodeContactVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DC91E2D217A6448E00280008 /* PaddleNodeContactVisitor.m */; };
 		DC91E2D617A644AF00280008 /* PlayfieldSceneContactVisitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DC91E2D517A644AF00280008 /* PlayfieldSceneContactVisitor.m */; };
-		DC91E2D917A648B300280008 /* SKPhysicsBody+MKLVisitable.m in Sources */ = {isa = PBXBuildFile; fileRef = DC91E2D817A648B300280008 /* SKPhysicsBody+MKLVisitable.m */; };
 		DCD60B821796A7F70075C179 /* PaddleNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD60B811796A7F70075C179 /* PaddleNode.m */; };
+		DCDDA029180E91DC00D61940 /* VisitablePhysicsBody.m in Sources */ = {isa = PBXBuildFile; fileRef = DCDDA028180E91DC00D61940 /* VisitablePhysicsBody.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,11 +80,11 @@
 		DC91E2D217A6448E00280008 /* PaddleNodeContactVisitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaddleNodeContactVisitor.m; sourceTree = "<group>"; };
 		DC91E2D417A644AF00280008 /* PlayfieldSceneContactVisitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayfieldSceneContactVisitor.h; sourceTree = "<group>"; };
 		DC91E2D517A644AF00280008 /* PlayfieldSceneContactVisitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayfieldSceneContactVisitor.m; sourceTree = "<group>"; };
-		DC91E2D717A648B300280008 /* SKPhysicsBody+MKLVisitable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKPhysicsBody+MKLVisitable.h"; sourceTree = "<group>"; };
-		DC91E2D817A648B300280008 /* SKPhysicsBody+MKLVisitable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKPhysicsBody+MKLVisitable.m"; sourceTree = "<group>"; };
 		DCB05FFE17A15FC300BCE6E3 /* NodeCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeCategories.h; sourceTree = "<group>"; };
 		DCD60B801796A7F70075C179 /* PaddleNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaddleNode.h; sourceTree = "<group>"; };
 		DCD60B811796A7F70075C179 /* PaddleNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaddleNode.m; sourceTree = "<group>"; };
+		DCDDA027180E91DC00D61940 /* VisitablePhysicsBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitablePhysicsBody.h; sourceTree = "<group>"; };
+		DCDDA028180E91DC00D61940 /* VisitablePhysicsBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitablePhysicsBody.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,8 +162,8 @@
 				DCD60B811796A7F70075C179 /* PaddleNode.m */,
 				DC456E9017AA997900F6EE5B /* ScoreNode.h */,
 				DC456E9117AA997900F6EE5B /* ScoreNode.m */,
-				DC91E2D717A648B300280008 /* SKPhysicsBody+MKLVisitable.h */,
-				DC91E2D817A648B300280008 /* SKPhysicsBody+MKLVisitable.m */,
+				DCDDA027180E91DC00D61940 /* VisitablePhysicsBody.h */,
+				DCDDA028180E91DC00D61940 /* VisitablePhysicsBody.m */,
 				DC91E2DA17A652D000280008 /* Visitors */,
 				DC7419D8178A8E2900D54AB2 /* Images.xcassets */,
 				DC7419CD178A8E2900D54AB2 /* Supporting Files */,
@@ -320,10 +320,10 @@
 				DC91E2D317A6448E00280008 /* PaddleNodeContactVisitor.m in Sources */,
 				DC7C604617939F52001252AB /* BallNode.m in Sources */,
 				DCD60B821796A7F70075C179 /* PaddleNode.m in Sources */,
+				DCDDA029180E91DC00D61940 /* VisitablePhysicsBody.m in Sources */,
 				DC69D1E217A9291F008534EC /* PlayerNode.m in Sources */,
 				DC91E2C717A5F16C00280008 /* ContactVisitor.m in Sources */,
 				DC456E9217AA997900F6EE5B /* ScoreNode.m in Sources */,
-				DC91E2D917A648B300280008 /* SKPhysicsBody+MKLVisitable.m in Sources */,
 				DC7419D7178A8E2900D54AB2 /* AppDelegate.m in Sources */,
 				DC91E2D617A644AF00280008 /* PlayfieldSceneContactVisitor.m in Sources */,
 				DC7419FF178AD5EA00D54AB2 /* PlayfieldScene.m in Sources */,
