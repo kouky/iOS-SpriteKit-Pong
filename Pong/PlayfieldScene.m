@@ -12,14 +12,14 @@
 #import "NodeCategories.h"
 #import "VisitablePhysicsBody.h"
 
-static const CGFloat  contactTolerance    = 1.0;
-static const uint32_t serveBallComplete   = 0x0;
-static const uint32_t serveBallLeftwards  = 0x1 << 0;
-static const uint32_t serveBallRightwards = 0x1 << 1;
+static const CGFloat  contactTolerance          = 1.0;
+static const uint32_t emptyBallStatus           = 0x0;
+static const uint32_t serveBallLeftwardsStatus  = 0x1 << 0;
+static const uint32_t serveBallRightwardsStatus = 0x1 << 1;
 
 @interface PlayfieldScene ()
 @property BOOL contentCreated;
-@property uint32_t serveBallStatus;
+@property uint32_t ballStatus;
 @end
 
 @implementation PlayfieldScene
@@ -124,7 +124,7 @@ static const uint32_t serveBallRightwards = 0x1 << 1;
     BallNode *ball = (BallNode *) [self childNodeWithName:@"ball"];
     if (ball) {
         [ball removeFromParent];
-        self.serveBallStatus = serveBallLeftwards;;
+        self.ballStatus = serveBallLeftwardsStatus;;
     }
 }
 
@@ -133,7 +133,7 @@ static const uint32_t serveBallRightwards = 0x1 << 1;
     BallNode *ball = (BallNode *) [self childNodeWithName:@"ball"];
     if (ball) {
         [ball removeFromParent];
-        self.serveBallStatus = serveBallRightwards;;
+        self.ballStatus = serveBallRightwardsStatus;;
     }
     
 }
@@ -143,16 +143,16 @@ static const uint32_t serveBallRightwards = 0x1 << 1;
     // Seems that we can't just update the position of the ball
     // during contact detection, needs to be done duting the update
     // stage of scene processing
-    if ((self.serveBallStatus & serveBallLeftwards) != 0) {
-        self.serveBallStatus = serveBallComplete;
+    if ((self.ballStatus & serveBallLeftwardsStatus) != 0) {
+        self.ballStatus = emptyBallStatus;
         BallNode *ball = [[BallNode alloc] init];
         [self addChild:ball];
         [ball resetPosition];
         [ball serveLeftwards];
     }
 
-    if ((self.serveBallStatus & serveBallRightwards) != 0) {
-        self.serveBallStatus = serveBallComplete;
+    if ((self.ballStatus & serveBallRightwardsStatus) != 0) {
+        self.ballStatus = emptyBallStatus;
         BallNode *ball = [[BallNode alloc] init];
         [self addChild:ball];
         [ball resetPosition];
