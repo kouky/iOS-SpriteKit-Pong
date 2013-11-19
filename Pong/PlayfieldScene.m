@@ -51,24 +51,39 @@ static const uint32_t serveBallRightwardsStatus = 0x1 << 1;
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
     SKPhysicsBody *firstBody, *secondBody;
-    firstBody = (SKPhysicsBody *) contact.bodyA;
-    secondBody = (SKPhysicsBody *) contact.bodyB;
+    // Inspect these closely, they're actually private class instances of PKPhysicsBody
+    firstBody = contact.bodyA;
+    secondBody = contact.bodyB;
     
-    // The nasty way to handle contacts, this will get out of hand
-    // quickly as we add more physics nodes to the scene.
+    // The naive way to handle contacts, this will get out of hand
+    // quickly as we add more physics bodies to the simulation
     
-//    if ((firstBody.categoryBitMask & ballCategory) != 0 && (secondBody.categoryBitMask & edgeCategory) != 0) {
+//    if (((firstBody.categoryBitMask & ballCategory) != 0 &&
+//         (secondBody.categoryBitMask & playfieldCategory) != 0) ||
+//        
+//        ((secondBody.categoryBitMask & ballCategory) != 0 &&
+//         (firstBody.categoryBitMask & playfieldCategory) != 0)) {
+//        
 //        BallNode *ball = (BallNode *)[firstBody node];
-//        [ball reflectVelocityForContactWithPoint:contact.contactPoint inBounds:self.frame];
-//    } else if ((secondBody.categoryBitMask & ballCategory) != 0 && (firstBody.categoryBitMask & edgeCategory) != 0) {
+//        // Perform something
+//        
+//    } else if ((secondBody.categoryBitMask & ballCategory) != 0 &&
+//               (firstBody.categoryBitMask & playfieldCategory) != 0) {
+//        
 //        BallNode *ball = (BallNode *)[secondBody node];
-//        [ball reflectVelocityForContactWithPoint:contact.contactPoint inBounds:self.frame];
-//    } else if ((firstBody.categoryBitMask & ballCategory) != 0 && (secondBody.categoryBitMask & paddleCategory) != 0) {
+//        // Perform the same something
+//        
+//    } else if ((firstBody.categoryBitMask & ballCategory) != 0 &&
+//               (secondBody.categoryBitMask & paddleCategory) != 0) {
+//        
 //        BallNode *ball = (BallNode *)[firstBody node];
-//        [ball reflectHorizontalVelocity];
-//    } else if ((secondBody.categoryBitMask & ballCategory) != 0 && (firstBody.categoryBitMask & paddleCategory) != 0) {
+//        // Perform something else
+//        
+//    } else if ((secondBody.categoryBitMask & ballCategory) != 0 &&
+//               (firstBody.categoryBitMask & paddleCategory) != 0) {
+//        
 //        BallNode *ball = (BallNode *)[secondBody node];
-//        [ball reflectHorizontalVelocity];
+//        // Perform the same something else
 //    }
     
     // Alternatively use the visitor pattern for a double dispatch approach        

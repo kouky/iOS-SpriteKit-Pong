@@ -11,7 +11,6 @@
 @interface PlayfieldSceneContactVisitor : ContactVisitor
 
 // Alternatively we can handle the ball hitting the scene edges here
-//
 //- (void)visitBallNode:(SKPhysicsBody *)ballBody;
 
 @end

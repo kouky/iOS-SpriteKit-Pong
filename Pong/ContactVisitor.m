@@ -52,7 +52,6 @@
     SEL selector = NSSelectorFromString(contactSelectorString);
     
     if ([self respondsToSelector:selector]) {
-        // Ignore this warning
         [self performSelector:selector withObject:body];
     }
     

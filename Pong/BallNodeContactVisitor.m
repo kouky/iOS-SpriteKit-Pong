@@ -10,6 +10,7 @@
 #import "BallNode.h"
 #import "PlayfieldScene.h"
 #import "ScoreNode.h"
+#import "PaddleNode.h"
 
 @implementation BallNodeContactVisitor
 
@@ -36,11 +37,10 @@
 }
 
 // Alternatively we can handle the paddle hitting the ball here
-//
 //- (void)visitPaddleNode:(SKPhysicsBody *)paddleBody
 //{
 //    BallNode *ball = (BallNode *) self.body.node;
-//    [ball reflectHorizontalVelocity];
+//    PaddleNode *paddle= (PaddleNode *) paddleBody.node;
 //}
 
 @end

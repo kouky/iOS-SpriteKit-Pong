@@ -44,11 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC3F2F79183B984200DAB1CF /* RandomHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandomHelper.h; sourceTree = "<group>"; };
 		DC456E9017AA997900F6EE5B /* ScoreNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreNode.h; sourceTree = "<group>"; };
 		DC456E9117AA997900F6EE5B /* ScoreNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreNode.m; sourceTree = "<group>"; };
 		DC69D1E017A9291F008534EC /* PlayerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerNode.h; sourceTree = "<group>"; };
 		DC69D1E117A9291F008534EC /* PlayerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerNode.m; sourceTree = "<group>"; };
-		DC6DC9E317D974CB002C23A6 /* RandomHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RandomHelper.h; path = ../RandomHelper.h; sourceTree = "<group>"; };
 		DC7419C3178A8E2900D54AB2 /* Pong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7419C6178A8E2900D54AB2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC7419C8178A8E2900D54AB2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -149,7 +149,6 @@
 				DC7419D5178A8E2900D54AB2 /* AppDelegate.h */,
 				DC7419D6178A8E2900D54AB2 /* AppDelegate.m */,
 				DCB05FFE17A15FC300BCE6E3 /* NodeCategories.h */,
-				DC6DC9E317D974CB002C23A6 /* RandomHelper.h */,
 				DC7419F8178AC25100D54AB2 /* GameViewController.h */,
 				DC7419F9178AC25100D54AB2 /* GameViewController.m */,
 				DC7419FD178AD29400D54AB2 /* PlayfieldScene.h */,
@@ -164,6 +163,7 @@
 				DC456E9117AA997900F6EE5B /* ScoreNode.m */,
 				DCDDA027180E91DC00D61940 /* VisitablePhysicsBody.h */,
 				DCDDA028180E91DC00D61940 /* VisitablePhysicsBody.m */,
+				DC3F2F79183B984200DAB1CF /* RandomHelper.h */,
 				DC91E2DA17A652D000280008 /* Visitors */,
 				DC7419D8178A8E2900D54AB2 /* Images.xcassets */,
 				DC7419CD178A8E2900D54AB2 /* Supporting Files */,
