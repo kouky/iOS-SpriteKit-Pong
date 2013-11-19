@@ -2,7 +2,10 @@
 
 An implementation of the classic video game Pong using Sprite Kit, an Apple graphics rendering and animation framework.
 
-This implementation provides a working example of the recommendation in the Sprite Kit programming guide to use the Double Dispatch Pattern to farm out work associated with node physics body contacts in the simulation.
+This implementation provides a working example of the recommendation in the Sprite Kit programming guide to use Double Dispatch to farm out work associated with node physics body contacts in the simulation.
+
+![Pong Screenshot](http://ec085a0a5b98f1ec5d97-65c493171c6d6a91bc23f798ea24c60a.r50.cf4.rackcdn.com/pong.jpg)
+
 
 ## Scene and Node Setup
 
@@ -16,7 +19,7 @@ When the ball contacts the  PaddleNode the horizontal velocity is reflected with
 
 The PlayfieldScene is assigned as the contact delegate for the physics world and implements the contact delegate method *didBeginContact*.
 
-The main observation to make is that the bodies in a contact can appear in any order. For example the first two clauses in the conditional below are essectially checking for the same thing, that the ball is contacting the playfield scene edges.
+The main observation to make is that the bodies in a contact can appear in any order. For example the first two clauses in the conditional below are essectially checking for the same thing, that the ball is contacting the PlayfieldScene edges.
 
 ```objective-c
 - (void)didBeginContact:(SKPhysicsContact *)contact
@@ -54,7 +57,7 @@ The main observation to make is that the bodies in a contact can appear in any o
 
 The problem with the approach above is two fold. 
 
-Firstly embedding all the logic in the scene's contact delegate method will result in a long unreadable delegate method  as the number of nodes in the simulation increases. Farming this work out to contact handlers would be much better.
+Firstly embedding all the logic in the scene's contact delegate method will result in a long unreadable method as the number of nodes in the simulation increases. Farming this work out to contact handlers would be much better.
 
 Secondly the code required to handle the outcome of each contact, needs to be written in or referenced twice. This could be addressed by by combining the double up with an OR operation, not that great for legibility. 
 
@@ -90,9 +93,154 @@ Another approach to counter the double up is the bitwise sorting approach in the
     }
 ```
 
-This introduces the need for every node in the simulation to respond to a verb based method like 'attack', which may end up being a no-op for most nodes. Also you're still going to require further nested conditionals to determine the outcome based on both bodies in the contact.
+This approach will still require further nested conditionals to determine the outcome based on both bodies in the contact, which for all but the most trivial of simulations will most likely be the case. 
 
-## Handling Physics Body Contacts with Double Dispatch
+## Physics Body Contacts with Double Dispatch
+
+Using the Visitor pattern we can double dispatch the outcome of the contact based on both bodies. The contact delegate is no longer concerened with discerning the categroies of the physics body, its implementation shrinks to just the following.
+
+```objective-c
+- (void)didBeginContact:(SKPhysicsContact *)contact
+{
+
+    SKPhysicsBody *firstBody, *secondBody;
+    // Inspect these closely, they're actually private class instances of PKPhysicsBody
+    firstBody = contact.bodyA;
+    secondBody = contact.bodyB;
+
+    VisitablePhysicsBody *firstVisitableBody = [[VisitablePhysicsBody alloc] initWithBody:firstBody];
+    VisitablePhysicsBody *secondVisitableBody = [[VisitablePhysicsBody alloc] initWithBody:secondBody];
+    
+    [firstVisitableBody acceptVisitor:[ContactVisitor contactVisitorWithBody:secondBody forContact:contact]];
+    [secondVisitableBody acceptVisitor:[ContactVisitor contactVisitorWithBody:firstBody forContact:contact]];
+    
+}
+```
+
+The _VisitablePhysicsBody_ class is a simple wrapper for an _SKPhysicsBody_ instance. It implements a method called accept, which accepts the visitor, and which in turn invokes the actual visit. A wrapper is used as _acceptVisitor_ cannot be implemented as a category on _SKPhysicsBody_ given the physics bodies carried by the _SKPhysicsContact_ instance are actually instances of private class _PKPhysicsBody_.
+
+```objective-c
+@implementation VisitablePhysicsBody
+
+- (id)initWithBody:(SKPhysicsBody *)body
+{
+    self = [super init];
+    if (self) {
+        _body = body;
+    }
+    return self;
+}
+
+- (void)acceptVisitor:(ContactVisitor *)contact
+{
+    [contact visit:self.body];
+}
+
+@end
+```
+
+Out _ContactVisitor_ base class implements convenience constructor _contactVisitorWithBody:forContact_ which constructs one of its subclasses based on the physics body category of it's first argument. This is the first part of the double dispatch, we have an instance of a class which is named after one of the bodies in the contact e.g. _BallNodeContactVisitor_ _PaddleNodeContactVisitor_ etc.
+
+
+```objective-c
+@implementation ContactVisitor
+
++ (id)contactVisitorWithBody:(SKPhysicsBody *)body forContact:(SKPhysicsContact *)contact
+{
+    if ((body.categoryBitMask & ballCategory) !=0) {
+        return [[BallNodeContactVisitor alloc] initWithBody:body forContact:contact];
+    } else if ((body.categoryBitMask & playfieldCategory) != 0) {
+        return [[PlayfieldSceneContactVisitor alloc] initWithBody:body forContact:contact];
+    } else if ((body.categoryBitMask & paddleCategory) != 0) {
+        return [[PaddleNodeContactVisitor alloc] initWithBody:body forContact:contact];
+    } else {
+        return nil;
+    }
+}
+
+- (id)initWithBody:(SKPhysicsBody *)body forContact:(SKPhysicsContact *)contact
+{
+    self = [super init];
+    if (self) {
+        _contact = contact;
+        _body = body;
+    }
+    return self;
+}
+
+...
+
+```
+
+The _visit_ method in our _ContactVisitor_ implements the second part of the double dispatch by sending a message named after the second physics body in the contact to the newly constructed _ContactVisitor_ subclass which is named after the first body in the contact e.g. _visitBallNode_ _visitPaddleNode_ etc.
+
+
+```objective-c
+...
+
+- (void)visit:(SKPhysicsBody *)body
+{
+    // This will generate strings like "BallNode", "PaddleNode", or "PlayfieldScene"
+    NSString *bodyClassName = [NSString stringWithUTF8String:class_getName(body.node.class)];
+    
+    // This will generate strings like "visitBallNode:", "visitPaddleNode:", or "visitPlayfieldScene"
+    NSMutableString *contactSelectorString = [NSMutableString stringWithFormat:@"visit"];
+    [contactSelectorString appendString:bodyClassName];
+    [contactSelectorString appendString:@":"];
+
+    SEL selector = NSSelectorFromString(contactSelectorString);
+    
+    if ([self respondsToSelector:selector]) {
+        [self performSelector:selector withObject:body];
+    }
+    
+}
+
+@end
+```
+
+We now have a class _BallNodeContactVisitor_ which is solely concenred with handling contacts for nodes of class _BallNode_. The methods within the class follow a naming convention determined by the _visit_ method and allow us to determine the outcome of the contact with other node types.
+
+```objective-c
+@implementation BallNodeContactVisitor
+
+// Handles contacts with PlayfieldScene edges
+- (void)visitPlayfieldScene:(SKPhysicsBody *)playfieldBody
+{
+    
+    BallNode *ball = (BallNode *) self.body.node;
+    PlayfieldScene *playfield = (PlayfieldScene *) playfieldBody.node;
+    // Perform something
+}
+
+// Handles contacts with PaddleNodes
+- (void)visitPaddleNode:(SKPhysicsBody *)paddleBody
+{
+    BallNode *ball = (BallNode *) self.body.node;
+    PaddleNode *paddle= (PaddleNode *) paddleBody.node;
+    // Perform something else
+}
+
+@end
+```
+
+On the flip side we have another class named _PaddleNodeContactVisitor_ which handles contacts for nodes of class _PaddleNode_. 
+
+```objective-c
+@implementation PaddleNodeContactVisitor
+
+// Handles contacts with BallNodes
+- (void)visitBallNode:(SKPhysicsBody *)ballBody
+{
+    BallNode *ball = (BallNode *) ballBody.node;
+    PaddleNode *paddle = (PaddleNode *) self.body.node;
+    // Perform something
+}
+
+@end
+```
+
+You can handle the same contact in two seperate places, but you only really want to do it in one place. In the examples above the contact between the _BallNode_ and the _PaddleNode_ will be dispatched to both the instances of _BallNodeContactVisitor_ and _PaddleNodeVisitor_ if they implement the respective methods _visitPaddleNode_ and _visitBallNode_. These methods don't have to be implemneted as the _ContactVisitor_ base class _visit_ method checks if they respond to the selectors firstly. In practice you'd only implement either _visitPaddleNode_ or _visitBallNode_.
 
 ## References
 
