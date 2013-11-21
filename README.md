@@ -97,7 +97,7 @@ This approach will still require further nested conditionals to determine the ou
 
 ## Physics Body Contacts with Double Dispatch
 
-Using the Visitor pattern we can double dispatch the outcome of the contact based on both bodies. The contact delegate is no longer concerened with discerning the categroies of the physics body, its implementation shrinks to just the following.
+Using the Visitor pattern we can double dispatch the outcome of the contact based on both bodies. The contact delegate is no longer discerns the categroies of the physics body, its implementation shrinks to just the following.
 
 ```objective-c
 - (void)didBeginContact:(SKPhysicsContact *)contact
@@ -172,7 +172,7 @@ Out _ContactVisitor_ base class implements convenience constructor _contactVisit
 
 ```
 
-The _visit_ method in our _ContactVisitor_ implements the second part of the double dispatch by sending a message named after the second physics body in the contact to the newly constructed _ContactVisitor_ subclass which is named after the first body in the contact e.g. _visitBallNode_ _visitPaddleNode_ etc.
+The _visit_ method in our _ContactVisitor_ implements the second part of the double dispatch by sending a message named after the second physics body in the contact to the newly constructed _ContactVisitor_ subclass instance which is named after the first body in the contact e.g. _visitBallNode_ _visitPaddleNode_ etc.
 
 
 ```objective-c
@@ -240,7 +240,7 @@ On the flip side we have another class named _PaddleNodeContactVisitor_ which ha
 @end
 ```
 
-You can handle the same contact in two seperate places, but you only really want to do it in one place. In the examples above the contact between the _BallNode_ and the _PaddleNode_ will be dispatched to both the instances of _BallNodeContactVisitor_ and _PaddleNodeVisitor_ if they implement the respective methods _visitPaddleNode_ and _visitBallNode_. These methods don't have to be implemneted as the _ContactVisitor_ base class _visit_ method checks if they respond to the selectors firstly. In practice you'd only implement either _visitPaddleNode_ or _visitBallNode_.
+You can handle the same contact in two seperate places, but you only really want to do it in one place. In the examples above the same contact between the _BallNode_ and the _PaddleNode_ will be dispatched to both the instances of _BallNodeContactVisitor_ and _PaddleNodeVisitor_ if they implement the respective methods _visitPaddleNode_ and _visitBallNode_. These methods don't have to be implemneted as the _ContactVisitor_ base class _visit_ method checks if they respond to the selectors firstly. In practice you'd only implement either _visitPaddleNode_ or _visitBallNode_.
 
 ## References
 
