@@ -171,7 +171,7 @@ static const uint32_t serveBallRightwardsStatus = 0x1 << 1;
         BallNode *ball = [[BallNode alloc] init];
         [self addChild:ball];
         [ball resetPosition];
-        [ball serveLeftwards];
+        [ball serveRightwards];
     }
 }
 
