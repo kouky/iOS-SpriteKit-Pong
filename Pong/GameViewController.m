@@ -38,6 +38,7 @@
     spriteView.showsDrawCount = YES;
     spriteView.showsNodeCount = YES;
     spriteView.showsFPS = YES;
+    spriteView.multipleTouchEnabled = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
