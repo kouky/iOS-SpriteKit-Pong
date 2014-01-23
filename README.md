@@ -97,7 +97,7 @@ This approach will still require further nested conditionals to determine the ou
 
 ## Physics Body Contacts with Double Dispatch
 
-Using the Visitor pattern we can double dispatch the outcome of the contact based on both bodies. The contact delegate is no longer discerns the categroies of the physics body, its implementation shrinks to just the following.
+Using the Visitor pattern we can double dispatch the outcome of the contact based on both bodies. The contact delegate no longer discerns the categroies of the physics body, its implementation shrinks to just the following.
 
 ```objective-c
 - (void)didBeginContact:(SKPhysicsContact *)contact
