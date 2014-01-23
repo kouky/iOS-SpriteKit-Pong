@@ -199,7 +199,7 @@ The _visit_ method in our _ContactVisitor_ implements the second part of the dou
 @end
 ```
 
-We now have a class _BallNodeContactVisitor_ which is solely concenred with handling contacts for nodes of class _BallNode_. The methods within the class follow a naming convention determined by the _visit_ method and allow us to determine the outcome of the contact with other node types.
+We now have a class _BallNodeContactVisitor_ which is solely concenred with handling contacts for nodes of class _BallNode_. The methods within the class follow a naming convention determined by the _visit_ method and allows us to determine the outcome of the contact with other node types.
 
 ```objective-c
 @implementation BallNodeContactVisitor
