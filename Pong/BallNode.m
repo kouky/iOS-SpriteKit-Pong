@@ -10,7 +10,6 @@
 #import "NodeCategories.h"
 #import "RandomHelper.h"
 
-static const CGFloat contactTolerance = 1.0;
 
 @implementation BallNode
 
