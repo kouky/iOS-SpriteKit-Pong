@@ -46,7 +46,7 @@
 
 - (void)updateText
 {
-    self.text = [NSString stringWithFormat:@"%ld", self.count];
+    self.text = [NSString stringWithFormat:@"%d", self.count];
 }
 
 @end

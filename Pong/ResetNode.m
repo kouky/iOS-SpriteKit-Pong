@@ -7,6 +7,7 @@
 //
 
 #import "ResetNode.h"
+#import "PlayfieldScene.h"
 
 @implementation ResetNode
 
@@ -35,6 +36,12 @@
 - (void)resetPosition
 {
     self.position = CGPointMake(CGRectGetMidX(self.scene.frame), self.parent.frame.size.height - 38);
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    PlayfieldScene *playFieldScene = (PlayfieldScene *)self.scene;
+    [playFieldScene reset];
 }
 
 @end
