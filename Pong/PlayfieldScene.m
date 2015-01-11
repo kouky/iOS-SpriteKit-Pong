@@ -10,6 +10,7 @@
 #import "BallNode.h"
 #import "PlayerNode.h"
 #import "ResetNode.h"
+#import "ScoreNode.h"
 #import "NodeCategories.h"
 #import "VisitablePhysicsBody.h"
 
@@ -158,6 +159,21 @@ static const uint32_t serveBallRightwardsStatus = 0x1 << 1;
         self.ballStatus = serveBallRightwardsStatus;;
     }
     
+}
+
+- (void)reset
+{
+    ScoreNode *leftScoreNode =  (ScoreNode *)[self childNodeWithName:@"//leftScore"];
+    if (leftScoreNode) {
+        [leftScoreNode reset];
+    }
+    
+    ScoreNode *rightScoreNode =  (ScoreNode *)[self childNodeWithName:@"//rightScore"];
+    if (rightScoreNode) {
+        [rightScoreNode reset];
+    }
+    
+    [self serveBallRightwards];
 }
 
 - (void)update:(NSTimeInterval)currentTime
