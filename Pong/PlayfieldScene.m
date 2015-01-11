@@ -9,6 +9,7 @@
 #import "PlayfieldScene.h"
 #import "BallNode.h"
 #import "PlayerNode.h"
+#import "ResetNode.h"
 #import "NodeCategories.h"
 #import "VisitablePhysicsBody.h"
 
@@ -45,6 +46,9 @@ static const uint32_t serveBallRightwardsStatus = 0x1 << 1;
     
     PlayerNode *rightPlayer = [[PlayerNode alloc] initOnRightSide];
     [self addChild:rightPlayer];
+    
+    ResetNode *resetNode = [[ResetNode alloc] init];
+    [self addChild:resetNode];
 
 }
 
@@ -115,6 +119,9 @@ static const uint32_t serveBallRightwardsStatus = 0x1 << 1;
         
         PlayerNode *rightPlayer = (PlayerNode *) [self childNodeWithName:@"rightPlayer"];
         [rightPlayer positionOnRightSide];
+        
+        ResetNode *resetNode = (ResetNode *) [self childNodeWithName:@"reset"];
+        [resetNode resetPosition];
     }
 }
 
