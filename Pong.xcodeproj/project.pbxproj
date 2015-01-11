@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27D43BD21A623CD40063AB4C /* ResetNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D43BD11A623CD40063AB4C /* ResetNode.m */; };
 		DC456E9217AA997900F6EE5B /* ScoreNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DC456E9117AA997900F6EE5B /* ScoreNode.m */; };
 		DC69D1E217A9291F008534EC /* PlayerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DC69D1E117A9291F008534EC /* PlayerNode.m */; };
 		DC7419C7178A8E2900D54AB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7419C6178A8E2900D54AB2 /* Foundation.framework */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27D43BD01A623CD40063AB4C /* ResetNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetNode.h; sourceTree = "<group>"; };
+		27D43BD11A623CD40063AB4C /* ResetNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetNode.m; sourceTree = "<group>"; };
 		DC3F2F79183B984200DAB1CF /* RandomHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandomHelper.h; sourceTree = "<group>"; };
 		DC456E9017AA997900F6EE5B /* ScoreNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreNode.h; sourceTree = "<group>"; };
 		DC456E9117AA997900F6EE5B /* ScoreNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreNode.m; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 				DCD60B811796A7F70075C179 /* PaddleNode.m */,
 				DC456E9017AA997900F6EE5B /* ScoreNode.h */,
 				DC456E9117AA997900F6EE5B /* ScoreNode.m */,
+				27D43BD01A623CD40063AB4C /* ResetNode.h */,
+				27D43BD11A623CD40063AB4C /* ResetNode.m */,
 				DCDDA027180E91DC00D61940 /* VisitablePhysicsBody.h */,
 				DCDDA028180E91DC00D61940 /* VisitablePhysicsBody.m */,
 				DC3F2F79183B984200DAB1CF /* RandomHelper.h */,
@@ -321,6 +326,7 @@
 				DC7C604617939F52001252AB /* BallNode.m in Sources */,
 				DCD60B821796A7F70075C179 /* PaddleNode.m in Sources */,
 				DCDDA029180E91DC00D61940 /* VisitablePhysicsBody.m in Sources */,
+				27D43BD21A623CD40063AB4C /* ResetNode.m in Sources */,
 				DC69D1E217A9291F008534EC /* PlayerNode.m in Sources */,
 				DC91E2C717A5F16C00280008 /* ContactVisitor.m in Sources */,
 				DC456E9217AA997900F6EE5B /* ScoreNode.m in Sources */,
