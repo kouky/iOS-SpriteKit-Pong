@@ -12,5 +12,6 @@
 
 - (id)initWithName:(NSString *)name;
 - (void)increment;
+- (void)reset;
 
 @end

@@ -38,6 +38,12 @@
     [self updateText];
 }
 
+- (void)reset
+{
+    self.count = 0;
+    [self updateText];
+}
+
 - (void)updateText
 {
     self.text = [NSString stringWithFormat:@"%ld", self.count];
