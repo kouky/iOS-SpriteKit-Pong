@@ -9,7 +9,7 @@
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "Pong Icon 4@2x.png",
+      "filename" : "Pong Icon 4@2x-1.png",
       "scale" : "2x"
     },
     {
@@ -37,27 +37,27 @@
       "scale" : "2x"
     },
     {
-      "size" : "50x50",
+      "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "Pong Icon 3.png",
+      "filename" : "Pong Icon 4.png",
       "scale" : "1x"
     },
     {
-      "size" : "50x50",
+      "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "Pong Icon 3@2x.png",
+      "filename" : "Pong Icon 4@2x.png",
       "scale" : "2x"
     },
     {
-      "size" : "72x72",
+      "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "Pong Icon 1.png",
+      "filename" : "Pong Icon 7.png",
       "scale" : "1x"
     },
     {
-      "size" : "72x72",
+      "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "Pong Icon 1@2x.png",
+      "filename" : "Pong Icon 7@2x.png",
       "scale" : "2x"
     }
   ],
