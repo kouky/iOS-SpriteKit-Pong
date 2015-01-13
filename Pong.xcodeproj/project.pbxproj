@@ -52,7 +52,7 @@
 		DC456E9117AA997900F6EE5B /* ScoreNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreNode.m; sourceTree = "<group>"; };
 		DC69D1E017A9291F008534EC /* PlayerNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerNode.h; sourceTree = "<group>"; };
 		DC69D1E117A9291F008534EC /* PlayerNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerNode.m; sourceTree = "<group>"; };
-		DC7419C3178A8E2900D54AB2 /* Pong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pong.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7419C3178A8E2900D54AB2 /* pong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC7419C6178A8E2900D54AB2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC7419C8178A8E2900D54AB2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DC7419CA178A8E2900D54AB2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -128,7 +128,7 @@
 		DC7419C4178A8E2900D54AB2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC7419C3178A8E2900D54AB2 /* Pong.app */,
+				DC7419C3178A8E2900D54AB2 /* pong.app */,
 				DC7419DE178A8E2900D54AB2 /* PongTests.xctest */,
 			);
 			name = Products;
@@ -237,7 +237,7 @@
 			);
 			name = Pong;
 			productName = Pong;
-			productReference = DC7419C3178A8E2900D54AB2 /* Pong.app */;
+			productReference = DC7419C3178A8E2900D54AB2 /* pong.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DC7419DD178A8E2900D54AB2 /* PongTests */ = {
@@ -453,7 +453,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pong/Pong-Prefix.pch";
 				INFOPLIST_FILE = "Pong/Pong-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = pong;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -467,7 +467,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pong/Pong-Prefix.pch";
 				INFOPLIST_FILE = "Pong/Pong-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = pong;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
