@@ -265,7 +265,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MKL;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Michael Koukoullis";
 				TargetAttributes = {
 					DC7419C2178A8E2900D54AB2 = {
@@ -393,6 +393,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Koukoullis (KN9U65BUR7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Koukoullis (KN9U65BUR7)";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -458,6 +459,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pong/Pong-Prefix.pch";
 				INFOPLIST_FILE = "Pong/Pong-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kouky.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = pong;
 				WRAPPER_EXTENSION = app;
 			};
@@ -473,6 +475,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pong/Pong-Prefix.pch";
 				INFOPLIST_FILE = "Pong/Pong-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kouky.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = pong;
 				WRAPPER_EXTENSION = app;
 			};
@@ -494,6 +497,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "PongTests/PongTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kouky.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -512,6 +516,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pong/Pong-Prefix.pch";
 				INFOPLIST_FILE = "PongTests/PongTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kouky.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
